@@ -23,12 +23,22 @@
    pip install -r requirements.txt
 ```
 
-> :warning: **If you are using mobile browser**: Be very careful here!
+> :warning: **Docker should be installed**: Install docker!
 
-docker run -it --rm --name redis -p 6379:6379 redis
+```bash 
+   sudo docker run -it --rm --name redis -p 6379:6379 redis
+```
 
-docker run -d --name some-rabbit -p 5672:5672 -p 5673:5673 -p 15672:15672 rabbitmq:3-management  
 
 
-celery -A myshop worker -l info
-stripe listen --forward-to localhost:8000/payment/webhook/
+```bash 
+   sudo docker run -d --name some-rabbit -p 5672:5672 -p 5673:5673 -p 15672:15672 rabbitmq:3-management
+```
+
+```bash
+    celery -A myshop worker -l info
+```
+```bash
+  stripe listen --forward-to localhost:8000/payment/webhook/
+```
+
