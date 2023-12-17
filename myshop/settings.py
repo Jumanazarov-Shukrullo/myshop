@@ -1,4 +1,5 @@
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,11 +29,13 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
+    'rosetta',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -122,3 +125,13 @@ STRIPE_SECRET_KEY = ('sk_test_51O9wLGFrxD4fYIr5eAjsamIkMndDfPWU5UiVnLoU6hZkbsKsM
                      'GCTdJ8uVfYhhDSW7VEuoWHkShGkumAWcFfYR7z00djnIk5DV')
 STRIPE_API_VERSION = '2023-10-16'
 STRIPE_WEBHOOK_SECRET = 'whsec_baff6af73ee89c6b5c73c0d4b290dc4dea171c0907e27b70239bf3f2ad434962'
+REDIS_HOST='localhost'
+REDIS_PORT=6379
+REDIS_DB=1
+LANGUAGES = [
+    ('en', _('English')),
+    ('ru', _('Russian')),
+]
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
