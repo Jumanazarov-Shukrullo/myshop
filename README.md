@@ -41,4 +41,6 @@
 ```bash
   stripe listen --forward-to localhost:8000/payment/webhook/
 ```
-
+```bash
+  python3 manage.py runserver
+```
